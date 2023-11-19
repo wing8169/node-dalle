@@ -13,8 +13,6 @@ const app = express()
   // @ts-ignore
   .use(markoMiddleware());
 
-app.post("/images", generateImage);
-
 if (NODE_ENV === devEnv) {
   const { createServer } = await import("vite");
   const devServer = await createServer({
@@ -41,6 +39,8 @@ if (NODE_ENV === devEnv) {
     // @ts-ignore
     .use((await import("./dist/index.js")).router);
 }
+
+// app.post("/images", generateImage);
 
 await once(app.listen(PORT), "listening");
 
