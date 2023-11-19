@@ -1,10 +1,10 @@
 # Introduction
 
-Simple image generation tool with NodeJS + TypeScript + HTMX + Marko + OPENAPI
+Simple image generation tool with NodeJS + TypeScript + HTMX + Marko + OpenAI API
 
 # How to run
 
-1. If you encounter any issues missing packages, try install via `npm install -g <package-name>` as there are some global dependencies to compile the webpack.
+1. If you encounter any issues missing packages, try install via `npm install -g <package-name>` as there are some global dependencies to compile the code.
 
 # References
 
@@ -20,29 +20,8 @@ https://markojs.com/docs/express/
 
 Search: "Marko VSCode" in VSCode marketplace
 
-4. Install TailwindCSS
+This list will be updated in the future as I have done further adjustments on the project structure based on several sources.
 
-https://daily.dev/blog/how-to-use-tailwindcss-with-node-js-express-and-pug
+4. Mask editor
 
-5. Important VSCode User Settings (JSON)
-
-```
-"[marko]": {
-"editor.defaultFormatter": "marko-js.marko-vscode"
-},
-"tailwindCSS.includeLanguages": {
-"marko": "html"
-},
-```
-
-6. Copy files when compiling typescript into javacsript
-
-https://vccolombo.github.io/blog/tsc-how-to-copy-non-typescript-files-when-building/
-
-7. Webpack
-
-https://its-amit.medium.com/how-to-make-build-for-express-js-node-js-using-webpack-and-deployment-on-docker-9cd219ba24a2
-
-8. Webpack TypeScript
-
-https://webpack.js.org/guides/typescript/
+https://medium.com/@david.richards.tech/how-to-create-openai-dall-e-mask-images-ed8feb562eba
