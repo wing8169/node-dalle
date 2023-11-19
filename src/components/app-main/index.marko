@@ -5,7 +5,15 @@ class {
 }
 
 <div>
-  <h1 onClick("sayHi") class="text-white">
+  <!-- @ts-ignore -->
+  <h1
+    hx-trigger="click"
+    hx-post="/images"
+    hx-target="#img"
+    hx-swap="outerHTML"
+    class="text-white"
+  >
     Hello!
   </h1>
+  <img-content src=input.src/>
 </div>

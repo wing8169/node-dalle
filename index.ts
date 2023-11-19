@@ -2,6 +2,7 @@ import { once } from "events";
 import express from "express";
 import markoMiddleware from "@marko/express";
 import compressionMiddleware from "compression";
+import { generateImage } from "./src/index.ts";
 
 const devEnv = "development";
 const { NODE_ENV = devEnv, PORT = 3000 } = process.env;
@@ -11,6 +12,8 @@ const app = express()
   .use(compressionMiddleware()) // Enable gzip compression for all HTTP responses.
   // @ts-ignore
   .use(markoMiddleware());
+
+app.post("/images", generateImage);
 
 if (NODE_ENV === devEnv) {
   const { createServer } = await import("vite");
