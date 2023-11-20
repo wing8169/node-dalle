@@ -2,7 +2,19 @@ import { once } from "events";
 import express from "express";
 import markoMiddleware from "@marko/express";
 import compressionMiddleware from "compression";
-import { generateImage } from "./src/index.ts";
+import bodyParser from "body-parser";
+
+declare global {
+  namespace Marko {
+    interface HTMLAttributes {
+      "hx-trigger"?: string; // Adds this attribute as available on all HTML tags.
+      "hx-post"?: string;
+      "hx-target"?: string;
+      "hx-swap"?: string;
+      "hx-indicator"?: string;
+    }
+  }
+}
 
 const devEnv = "development";
 const { NODE_ENV = devEnv, PORT = 3000 } = process.env;
@@ -19,6 +31,7 @@ if (NODE_ENV === devEnv) {
     appType: "custom",
     server: { middlewareMode: true },
   });
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(devServer.middlewares);
   app.use(async (req, res, next) => {
     try {
