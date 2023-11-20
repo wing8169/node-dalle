@@ -7,9 +7,33 @@ import "../styles/output.css";
   <head>
     <title>Dall·E with Node</title>
     <script src="https://unpkg.com/htmx.org@1.9.8"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    >
   </head>
   <body class="w-screen h-screen flex flex-col items-center justify-center gap-6 bg-black">
-    <app-main src=input.src/>
+    <h1 class="text-white">
+      DALLE NODE
+    </h1>
+    <form
+      hx-post="/images"
+      hx-target="#img"
+      hx-swap="outerHTML"
+      class="flex flex-col items-center gap-6"
+      hx-indicator="#spinner"
+    >
+      <input name="prompt">
+      <button type="submit" class="text-white">
+        Generate
+      </button>
+      <img-content src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT54sU7bc_QAOL63miw2XRTVXAjsdK8vA9W08LAMog&s"/>
+      <span
+        id="spinner"
+        class="material-symbols-outlined text-white htmx-indicator"
+      >
+        hourglass_top
+      </span>
+    </form>
   </body>
 </html>
