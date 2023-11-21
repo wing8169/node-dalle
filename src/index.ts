@@ -6,14 +6,13 @@ import template from "./components/img-content/index.marko";
 import "dotenv/config";
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAPI_SECRET, // defaults to process.env["OPENAI_API_KEY"]
-});
-
 export const generateImage = async (req: Request, res: Response) => {
   const prompt = req.body.prompt ?? "";
   let imageUrl = "";
   try {
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAPI_SECRET, // defaults to process.env["OPENAI_API_KEY"]
+    });
     const response = await openai.images.generate({
       model: "dall-e-3",
       prompt,

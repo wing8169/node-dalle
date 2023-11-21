@@ -25,6 +25,7 @@ const runSever = async () => {
     .use(compressionMiddleware()) // Enable gzip compression for all HTTP responses.
     // @ts-ignore
     .use(markoMiddleware());
+  app.use(bodyParser.urlencoded({ extended: true }));
 
   if (NODE_ENV === devEnv) {
     const { createServer } = await import("vite");
@@ -32,7 +33,6 @@ const runSever = async () => {
       appType: "custom",
       server: { middlewareMode: true },
     });
-    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(devServer.middlewares);
     app.use(async (req, res, next) => {
       try {
