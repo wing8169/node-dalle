@@ -7,8 +7,7 @@ import "dotenv/config";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: "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",
-  // apiKey: process.env.OPENAPI_SECRET, // defaults to process.env["OPENAI_API_KEY"]
+  apiKey: process.env.OPENAPI_SECRET, // defaults to process.env["OPENAI_API_KEY"]
 });
 
 export const generateImage = async (req: Request, res: Response) => {
