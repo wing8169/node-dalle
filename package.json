@@ -8,9 +8,9 @@
     "build": "rimraf dist && npm run build:server && npm run build:client",
     "clean": "rimraf dist",
     "build:client": "cross-env NODE_ENV=production vite build",
-    "build:server": "cross-env NODE_ENV=production vite build --ssr index.ts",
+    "build:server": "cross-env NODE_ENV=production vite build --ssr src/index.ts",
     "dev": "nodemon",
-    "start": "cross-env NODE_ENV=production NODE_PATH=./dist node --enable-source-maps ./index.js",
+    "start": "cross-env NODE_ENV=production ts-node --esm ./index.ts",
     "preview": "vite preview"
   },
   "type": "module",
