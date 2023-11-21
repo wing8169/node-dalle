@@ -6,5 +6,8 @@ export default defineConfig({
   build: {
     sourcemap: true, // Generate sourcemaps for all builds.
     emptyOutDir: false, // Avoid server & client deleting files from each other.
+    rollupOptions: {
+      external: ["dist/index.js"],
+    },
   },
 });

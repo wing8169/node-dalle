@@ -6,10 +6,12 @@
   "scripts": {
     "css": "tailwindcss src/styles/input.css -o src/styles/output.css --watch",
     "build": "rimraf dist && npm run build:server && npm run build:client",
+    "clean": "rimraf dist",
     "build:client": "cross-env NODE_ENV=production vite build",
-    "build:server": "cross-env NODE_ENV=production vite build --ssr src/index.ts",
+    "build:server": "cross-env NODE_ENV=production vite build --ssr index.ts",
     "dev": "nodemon",
-    "start": "ts-node --esm ./index.ts"
+    "start": "cross-env NODE_ENV=production NODE_PATH=./dist node --enable-source-maps ./index.js",
+    "preview": "vite preview"
   },
   "type": "module",
   "keywords": [],

@@ -50,7 +50,7 @@ if (NODE_ENV === devEnv) {
   app
     .use("/assets", express.static("dist/assets")) // Serve assets generated from vite.
     // @ts-ignore
-    .use((await import("./dist/index.js")).router);
+    .use((await import("dist/index.js")).router);
 }
 
 // app.post("/images", generateImage);
